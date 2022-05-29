@@ -43,7 +43,8 @@ qtcreator-*
 /planning/src
 
 *~
-
+#solidworks temp files
+~$*
 # Emacs
 .#*
 
