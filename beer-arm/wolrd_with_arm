@@ -1,0 +1,1002 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>440 93000000</sim_time>
+      <real_time>447 44099757</real_time>
+      <wall_time>1654995067 80846621</wall_time>
+      <iterations>440093</iterations>
+      <model name='beer-arm'>
+        <pose frame=''>-0.059896 -0.02997 0.095 -1.57 0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='Back_gripper'>
+          <pose frame=''>-0.010272 0.296228 0.122501 1.5708 -0.090171 -1.56677</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Front_gripper'>
+          <pose frame=''>-0.010276 0.297129 0.13246 -0.09014 0.001728 0.02324</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Link1'>
+          <pose frame=''>-0.021581 0.042898 0.175876 1.5708 -0.504665 -1.56678</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Link2'>
+          <pose frame=''>-0.0321 0.172063 0.197983 1.57079 -0.843622 1.57482</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Lower_Backlink'>
+          <pose frame=''>-0.016254 -0.038399 0.128046 -1.5708 -1.0468 1.57482</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Turning_base'>
+          <pose frame=''>0.006154 -0.015402 0.06271 0.0008 -3e-06 0.004019</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Upper_backlink'>
+          <pose frame=''>-0.026617 0.051628 0.283891 -1.57079 1.04679 -1.56677</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='Upper_frontlink'>
+          <pose frame=''>-0.001858 0.111641 0.314475 1.57078 0.715503 1.57481</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='base_link'>
+          <pose frame=''>-0.059896 -0.02997 0.095 -1.57 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='gripper'>
+          <pose frame=''>0.001688 0.324478 0.12698 0.020215 0.08787 1.80141</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='lower_frontlink'>
+          <pose frame=''>-0.002644 0.262595 0.183279 -1.57078 -0.71551 -1.56678</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='triangle'>
+          <pose frame=''>-0.006785 0.093726 0.267787 1.57081 -0.366009 -1.56678</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='world_fix'>
+          <pose frame=''>-0.059896 -0.02997 0.095 -1.57 0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <model name='beer-arm'>
+      <pose frame=''>-0.059896 -0.02997 0.095 -1.57 0 0</pose>
+      <link name='base_link'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.065744 0.049491 -0.045217 0 -0 0</pose>
+          <mass>0.207046</mass>
+          <inertia>
+            <ixx>0.0002961</ixx>
+            <ixy>4.1481e-07</ixy>
+            <ixz>2.9651e-09</ixz>
+            <iyy>0.000248571</iyy>
+            <iyz>2.5876e-11</iyz>
+            <izz>0.000510587</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='world_fix'>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='weld' type='fixed'>
+        <parent>world</parent>
+        <child>base_link</child>
+      </joint>
+      <link name='Turning_base'>
+        <pose frame=''>0.06605 0.032302 0.014542 1.5708 -0.004019 -0</pose>
+        <inertial>
+          <pose frame=''>-0.02677 0.004881 0.022218 0 -0 0</pose>
+          <mass>0.192371</mass>
+          <inertia>
+            <ixx>0.000135901</ixx>
+            <ixy>-1.33821e-06</ixy>
+            <ixz>2.84316e-06</ixz>
+            <iyy>0.000156556</iyy>
+            <iyz>2.69961e-06</iyz>
+            <izz>0.00019792</izz>
+          </inertia>
+        </inertial>
+        <collision name='Turning_base_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Turning_base.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Turning_base_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Turning_base.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J1' type='revolute'>
+        <child>Turning_base</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>6.28</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Lower_Backlink'>
+        <pose frame=''>0.043642 -0.033053 -0.008403 1.57544 -0.524788 -1.57312</pose>
+        <inertial>
+          <pose frame=''>0.041464 0 0.005 0 -0 0</pose>
+          <mass>0.0193744</mass>
+          <inertia>
+            <ixx>8.00417e-07</ixx>
+            <ixy>-9.52912e-22</ixy>
+            <ixz>4.55815e-21</ixz>
+            <iyy>1.54914e-05</iyy>
+            <iyz>1.31133e-22</iyz>
+            <izz>1.59689e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Lower_Backlink_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Lower_Backlink.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Lower_Backlink_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Lower_Backlink.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J2' type='revolute'>
+        <child>Lower_Backlink</child>
+        <parent>Turning_base</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>6.28</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Link1'>
+        <pose frame=''>0.038315 -0.080818 0.072932 1.57909 1.06532 -1.56354</pose>
+        <inertial>
+          <pose frame=''>-0 0.005 -0.01 0 -0 0</pose>
+          <mass>0.0855738</mass>
+          <inertia>
+            <ixx>0.000328606</ixx>
+            <ixy>1.45961e-17</ixy>
+            <ixz>3.74846e-22</ixz>
+            <iyy>3.53585e-06</iyy>
+            <iyz>-2.15886e-16</iyz>
+            <izz>0.000330716</izz>
+          </inertia>
+        </inertial>
+        <collision name='Link1_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Link1.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Link1_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Link1.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J3' type='revolute'>
+        <child>Link1</child>
+        <parent>Turning_base</parent>
+        <axis>
+          <xyz>0.999992 -3e-06 0.004017</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>6.28</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='triangle'>
+        <pose frame=''>0.053111 -0.172688 0.123834 1.582 1.20397 -1.56035</pose>
+        <inertial>
+          <pose frame=''>0.012867 0.014967 0.005 0 -0 0</pose>
+          <mass>0.0191247</mass>
+          <inertia>
+            <ixx>5.6229e-06</ixx>
+            <ixy>2.73396e-06</ixy>
+            <ixz>-1.63799e-21</ixz>
+            <iyy>4.65319e-06</iyy>
+            <iyz>1.7731e-21</iyz>
+            <izz>9.95734e-06</izz>
+          </inertia>
+        </inertial>
+        <collision name='triangle_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/triangle.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='triangle_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/triangle.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J4' type='revolute'>
+        <child>triangle</child>
+        <parent>Link1</parent>
+        <axis>
+          <xyz>-0.999992 3e-06 -0.004017</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Upper_backlink'>
+        <pose frame=''>0.033279 -0.188826 0.081748 1.56615 0.524798 1.56847</pose>
+        <inertial>
+          <pose frame=''>0.041464 0 0.005 0 -0 0</pose>
+          <mass>0.0193744</mass>
+          <inertia>
+            <ixx>8.00417e-07</ixx>
+            <ixy>4.23516e-22</ixy>
+            <ixz>2.85427e-21</ixz>
+            <iyy>1.54914e-05</iyy>
+            <iyz>-5.92136e-23</iyz>
+            <izz>1.59689e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Upper_backlink_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Upper_backlink.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Upper_backlink_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Upper_backlink.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J5' type='revolute'>
+        <child>Upper_backlink</child>
+        <parent>triangle</parent>
+        <axis>
+          <xyz>-0.999992 -0 -0.004023</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Upper_frontlink'>
+        <pose frame=''>0.058038 -0.219362 0.141786 1.56467 -0.854488 1.57541</pose>
+        <inertial>
+          <pose frame=''>0.046391 -0 0 0 -0 0</pose>
+          <mass>0.0214125</mass>
+          <inertia>
+            <ixx>8.84174e-07</ixx>
+            <ixy>-2.26124e-17</ixy>
+            <ixz>3.03487e-17</ixz>
+            <iyy>2.0803e-05</iyy>
+            <iyz>4.03015e-22</iyz>
+            <izz>2.13303e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='Upper_frontlink_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Upper_frontlink.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Upper_frontlink_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Upper_frontlink.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J6' type='revolute'>
+        <child>Upper_frontlink</child>
+        <parent>triangle</parent>
+        <axis>
+          <xyz>-0.999992 9e-06 -0.004022</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Link2'>
+        <pose frame=''>0.027796 -0.102822 0.202115 -1.56541 -0.727963 -1.57438</pose>
+        <inertial>
+          <pose frame=''>0 0.018666 0.024706 0 -0 0</pose>
+          <mass>0.0953394</mass>
+          <inertia>
+            <ixx>0.000470412</ixx>
+            <ixy>3.36399e-18</ixy>
+            <ixz>-2.06366e-21</ixz>
+            <iyy>3.95015e-06</iyy>
+            <iyz>-3.09372e-16</iyz>
+            <izz>0.000472773</izz>
+          </inertia>
+        </inertial>
+        <collision name='Link2_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Link2.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Link2_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Link2.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J7' type='revolute'>
+        <child>Link2</child>
+        <parent>Link1</parent>
+        <axis>
+          <xyz>-0.999992 -2e-06 -0.004022</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Back_gripper'>
+        <pose frame=''>0.049624 -0.027241 0.32622 1.61505 1.47974 -1.52673</pose>
+        <inertial>
+          <pose frame=''>0.028997 0.03143 0.001417 0 -0 0</pose>
+          <mass>1.53803</mass>
+          <inertia>
+            <ixx>0.000909414</ixx>
+            <ixy>8.26534e-05</ixy>
+            <ixz>-2.7668e-05</ixz>
+            <iyy>0.000912567</iyy>
+            <iyz>-4.94358e-05</iyz>
+            <izz>0.00115502</izz>
+          </inertia>
+        </inertial>
+        <collision name='Back_gripper_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Back_gripper.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Back_gripper_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Back_gripper.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J8' type='revolute'>
+        <child>Back_gripper</child>
+        <parent>Link2</parent>
+        <axis>
+          <xyz>-0.999992 6e-06 -0.004023</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='lower_frontlink'>
+        <pose frame=''>0.057252 -0.088046 0.292635 -1.56466 0.854481 -1.56618</pose>
+        <inertial>
+          <pose frame=''>0.046391 -0 0 0 -0 0</pose>
+          <mass>0.0214125</mass>
+          <inertia>
+            <ixx>8.84174e-07</ixx>
+            <ixy>-2.2568e-17</ixy>
+            <ixz>3.03403e-17</ixz>
+            <iyy>2.0803e-05</iyy>
+            <iyz>9.06223e-23</iyz>
+            <izz>2.13303e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='lower_frontlink_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/lower_frontlink.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='lower_frontlink_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/lower_frontlink.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J11' type='revolute'>
+        <child>lower_frontlink</child>
+        <parent>Back_gripper</parent>
+        <axis>
+          <xyz>-0.999992 1.1e-05 -0.004028</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='Front_gripper'>
+        <pose frame=''>0.04962 -0.0372 0.327129 1.47982 -0.023239 0.001747</pose>
+        <inertial>
+          <pose frame=''>-0.000134 0.028322 0.01529 0 -0 0</pose>
+          <mass>0.558597</mass>
+          <inertia>
+            <ixx>0.000309404</ixx>
+            <ixy>-3.9146e-05</ixy>
+            <ixz>3.65469e-06</ixz>
+            <iyy>0.000256279</iyy>
+            <iyz>8.07701e-06</iyz>
+            <izz>0.000464593</izz>
+          </inertia>
+        </inertial>
+        <collision name='Front_gripper_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Front_gripper.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='Front_gripper_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/Front_gripper.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J9' type='revolute'>
+        <child>Front_gripper</child>
+        <parent>Back_gripper</parent>
+        <axis>
+          <xyz>-0.000337 -0.995866 0.09083</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>6.28</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='gripper'>
+        <pose frame=''>0.061584 -0.031698 0.354473 -1.18985 -1.324 2.77077</pose>
+        <inertial>
+          <pose frame=''>0.030961 -4.6e-05 0.017144 0 -0 0</pose>
+          <mass>0.0686737</mass>
+          <inertia>
+            <ixx>6.40645e-06</ixx>
+            <ixy>-1.58915e-10</ixy>
+            <ixz>3.10523e-06</ixz>
+            <iyy>2.87093e-05</iyy>
+            <iyz>3.68994e-11</iyz>
+            <izz>2.25896e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='gripper_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/gripper.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='gripper_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://pallitizingBot/meshes/gripper.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='J10' type='revolute'>
+        <child>gripper</child>
+        <parent>Front_gripper</parent>
+        <axis>
+          <xyz>0.000339 0.995866 -0.090837</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>6.28</upper>
+            <effort>0</effort>
+            <velocity>0</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <joint name='J21' type='fixed'>
+        <child>Upper_backlink</child>
+        <parent>Lower_Backlink</parent>
+      </joint>
+      <joint name='J22' type='fixed'>
+        <child>lower_frontlink</child>
+        <parent>Upper_frontlink</parent>
+      </joint>
+    </model>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-0.481576 0.267158 0.367781 0 0.557798 -0.235842</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
