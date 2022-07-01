@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="URDF with fridge">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0689431998771194 -0.0141220992321394 -0.300302033882626"
+        rpy="0 0 0" />
+      <mass
+        value="5.73199162392309" />
+      <inertia
+        ixx="0.0472878884227461"
+        ixy="-1.18684409079201E-05"
+        ixz="-0.000695180601841699"
+        iyy="0.0621317577117919"
+        iyz="-3.4508866648248E-05"
+        izz="0.0549594182577516" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fridgeDoor">
+    <inertial>
+      <origin
+        xyz="0.0736569393881498 0.114201229135015 -3.33066907387547E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.433445243112743" />
+      <inertia
+        ixx="0.00331287924753315"
+        ixy="-2.13930954220293E-05"
+        ixz="1.72257837770235E-18"
+        iyy="0.000759449566054937"
+        iyz="4.86624442614954E-18"
+        izz="0.00406508938639499" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/fridgeDoor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/fridgeDoor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F1"
+    type="continuous">
+    <origin
+      xyz="0.13865629709213 0 -0.283835687229188"
+      rpy="0 -0.030784802234591 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="fridgeDoor" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="turning_base">
+    <inertial>
+      <origin
+        xyz="-0.0267697026327348 0.00488148698796461 0.0222183347728628"
+        rpy="0 0 0" />
+      <mass
+        value="0.19237125582213" />
+      <inertia
+        ixx="0.000135901413995399"
+        ixy="-1.33820761853295E-06"
+        ixz="2.84315818360693E-06"
+        iyy="0.000156555561267971"
+        iyz="2.6996128156746E-06"
+        izz="0.000197919660234674" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/turning_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/turning_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="continuous">
+    <origin
+      xyz="0.0660497283649592 0.0323022563864429 0.0145420702819405"
+      rpy="1.5707963267949 -0.00401861891135302 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="turning_base" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="lowerFront">
+    <inertial>
+      <origin
+        xyz="-2.22044604925031E-16 -0.0999111796922045 -0.00999999999999947"
+        rpy="0 0 0" />
+      <mass
+        value="0.0855737940510451" />
+      <inertia
+        ixx="0.000328606447348668"
+        ixy="-8.20986684126231E-19"
+        ixz="-4.72153637505962E-22"
+        iyy="3.53584860057504E-06"
+        iyz="-2.15784962745792E-16"
+        izz="0.000330716066048393" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerFront.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerFront.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="revolute">
+    <origin
+      xyz="-0.0274999999999557 0.0125000000000202 0.0300000000015584"
+      rpy="-1.57079632679639 0.490375448312762 1.5707963267945" />
+    <parent
+      link="turning_base" />
+    <child
+      link="lowerFront" />
+    <axis
+      xyz="0.470957125376388 0.882156100731162 0" />
+    <limit
+      lower="0"
+      upper="6.288"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="triangle">
+    <inertial>
+      <origin
+        xyz="0.0128671162531902 0.0149668569116932 0.00499999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.0191246861766036" />
+      <inertia
+        ixx="5.62289539865078E-06"
+        ixy="2.73395813990835E-06"
+        ixz="-3.15454872629373E-22"
+        iyy="4.65318566936928E-06"
+        iyz="3.74745449762105E-22"
+        izz="9.95733629841E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/triangle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/triangle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="continuous">
+    <origin
+      xyz="0 -0.199999999999989 -0.0150000000000651"
+      rpy="0 0 3.0192892910529" />
+    <parent
+      link="lowerFront" />
+    <child
+      link="triangle" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="upperHalfbacklink">
+    <inertial>
+      <origin
+        xyz="0.0414635494994406 5.62050406216485E-16 0.00499999999999991"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193744467859455" />
+      <inertia
+        ixx="8.00416835228508E-07"
+        ixy="1.14349447879331E-20"
+        ixz="1.47050174175862E-21"
+        iyy="1.54913654040111E-05"
+        iyz="-3.70090868325708E-23"
+        izz="1.59688747928072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/upperHalfbacklink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/upperHalfbacklink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J5"
+    type="continuous">
+    <origin
+      xyz="0.0450000000000081 0 0.0199999999999996"
+      rpy="3.14159265358979 0 -1.43084807582469" />
+    <parent
+      link="triangle" />
+    <child
+      link="upperHalfbacklink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="upperHalfFrontlink">
+    <inertial>
+      <origin
+        xyz="0.0463904561233809 -6.45317133063372E-14 7.9956874454723E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.0214124502395769" />
+      <inertia
+        ixx="8.84174131725659E-07"
+        ixy="-2.26260234963957E-17"
+        ixz="3.03407180299729E-17"
+        iyy="2.08029877158262E-05"
+        iyz="-9.12136632753397E-24"
+        izz="2.13302876768922E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/upperHalfFrontlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/upperHalfFrontlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J6"
+    type="continuous">
+    <origin
+      xyz="0 0.0500000000000889 -0.00499999999985195"
+      rpy="3.14159265358979 0 -2.48003154709769" />
+    <parent
+      link="triangle" />
+    <child
+      link="upperHalfFrontlink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="lowerfrontLink">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -0.0863342210093204 0.0247054628952012"
+        rpy="0 0 0" />
+      <mass
+        value="0.0953394410565643" />
+      <inertia
+        ixx="0.000470411650298866"
+        ixy="5.4315987742682E-19"
+        ixz="1.51753137276197E-21"
+        iyy="3.95014826174653E-06"
+        iyz="-3.09405752680569E-16"
+        izz="0.000472772807876337" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerfrontLink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerfrontLink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="revolute">
+    <origin
+      xyz="0 -0.2 0.01"
+      rpy="3.1416 0 -1.0177" />
+    <parent
+      link="lowerFront" />
+    <child
+      link="lowerfrontLink" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="6.288"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="backhalfGripper">
+    <inertial>
+      <origin
+        xyz="-0.0250028133017937 0.0239301160957166 0.00141734074678149"
+        rpy="0 0 0" />
+      <mass
+        value="1.53802958602338" />
+      <inertia
+        ixx="0.000909413538569685"
+        ixy="8.26533997142431E-05"
+        ixz="-2.76680034671548E-05"
+        iyy="0.000912566548096114"
+        iyz="-4.94357740447192E-05"
+        izz="0.00115501581802408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/backhalfGripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/backhalfGripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J7"
+    type="continuous">
+    <origin
+      xyz="0 -0.2 0.022327"
+      rpy="3.1416 0 2.5048" />
+    <parent
+      link="lowerfrontLink" />
+    <child
+      link="backhalfGripper" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frontGripper">
+    <inertial>
+      <origin
+        xyz="-0.000216464748702488 0.0283235783013317 0.0142900639859024"
+        rpy="0 0 0" />
+      <mass
+        value="0.558596679661737" />
+      <inertia
+        ixx="0.000309404274315498"
+        ixy="-3.91459968046765E-05"
+        ixz="3.65468624887361E-06"
+        iyy="0.000256279098899188"
+        iyz="8.0770060142967E-06"
+        izz="0.00046459335100017" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/frontGripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/frontGripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J8"
+    type="revolute">
+    <origin
+      xyz="-0.054 0.0035 -8.2845E-05"
+      rpy="1.5708 1.5515 -3.1416" />
+    <parent
+      link="backhalfGripper" />
+    <child
+      link="frontGripper" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="2ndHalfGripper">
+    <inertial>
+      <origin
+        xyz="0.0309607104904639 -4.59355418674923E-05 0.0171444074906643"
+        rpy="0 0 0" />
+      <mass
+        value="0.0686737389522782" />
+      <inertia
+        ixx="6.40644623542164E-06"
+        ixy="-1.58915253494999E-10"
+        ixz="3.10523081266725E-06"
+        iyy="2.87092893917181E-05"
+        iyz="3.68993537350604E-11"
+        izz="2.25895985442529E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/2ndHalfGripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/2ndHalfGripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J9"
+    type="revolute">
+    <origin
+      xyz="0.012523 0.027447 -0.004"
+      rpy="0 0 1.7772" />
+    <parent
+      link="frontGripper" />
+    <child
+      link="2ndHalfGripper" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="-0.78"
+      upper="78"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lowerHalffrontlink">
+    <inertial>
+      <origin
+        xyz="0.0463904561233884 -6.08402217494586E-14 7.99707522425308E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.0214124502395769" />
+      <inertia
+        ixx="8.84174131725664E-07"
+        ixy="-2.26194060514953E-17"
+        ixz="3.03389346498544E-17"
+        iyy="2.08029877158262E-05"
+        iyz="-6.19824220911003E-23"
+        izz="2.13302876768923E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerHalffrontlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/lowerHalffrontlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J10"
+    type="continuous">
+    <origin
+      xyz="-0.015 0.05 -0.0074928"
+      rpy="-3.1416 0 0.92013" />
+    <parent
+      link="backhalfGripper" />
+    <child
+      link="lowerHalffrontlink" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="LowerHalfBacklink">
+    <inertial>
+      <origin
+        xyz="0.0414635494994407 6.93889390390723E-18 0.00499999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193744467859455" />
+      <inertia
+        ixx="8.00416835228504E-07"
+        ixy="-3.3881317890172E-21"
+        ixz="4.52614911442815E-21"
+        iyy="1.54913654040111E-05"
+        iyz="1.88996064051875E-22"
+        izz="1.59688747928072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/LowerHalfBacklink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF with fridge/meshes/LowerHalfBacklink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J11"
+    type="fixed">
+    <origin
+      xyz="-0.0225 -0.022855 0.065355"
+      rpy="-1.5708 -1.0628 1.5708" />
+    <parent
+      link="turning_base" />
+    <child
+      link="LowerHalfBacklink" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
