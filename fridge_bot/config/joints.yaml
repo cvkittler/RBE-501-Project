@@ -1,0 +1,10 @@
+# The joint state controller handles publishing transforms for any moving joints
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+  extra_joints:
+  - name: J1
+    position: 0.01
+    velocity: 0.0
+    effort: 0.0
+
