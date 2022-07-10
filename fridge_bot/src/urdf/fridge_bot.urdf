@@ -51,8 +51,8 @@
     <parent link="world"/>
     <child link="base_link"/>
     <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+        xyz="0 0 -.9"
+        rpy="-1.57 0 0" />
   </joint>
   <link
     name="Turning_link">
@@ -677,6 +677,7 @@
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/fridge_bot</robotNamespace>
     </plugin>
+    <self_collide>1</self_collide>
   </gazebo> 
 
 
