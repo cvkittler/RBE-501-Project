@@ -597,7 +597,7 @@
   </link>
   <joint
     name="J10"
-    type="revolute">
+    type="fixed">
     <origin
       xyz="0.012523 0.027447 -0.004"
       rpy="0 0 1.7772" />
@@ -607,11 +607,11 @@
       link="gripper" />
     <axis
       xyz="-0.0001246 2.8609E-05 -1" />
-    <limit
+    <!-- <limit
       lower="0"
       upper="6.28"
       effort="0"
-      velocity="0" />
+      velocity="0" /> -->
   </joint>
   <link
     name="Lower_frontlink">

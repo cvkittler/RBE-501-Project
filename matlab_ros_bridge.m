@@ -20,7 +20,7 @@ req = rosmessage(client);
 req.ModelName = 'fridge_bot';
 req.UrdfParamName = 'robot_description';
 req.JointNames = {'joint1','joint3','joint7'};
-req.JointPositions = [deg2rad(30), deg2rad(90),deg2rad(90)];
+req.JointPositions = [deg2rad(30), deg2rad(90),deg2rad(0)];
 resp = call(client,req,'Timeout',3);
 tic;
 t1 = 0;
@@ -54,7 +54,7 @@ t1 = toc;
 % read the joint states
 jointData = receive(JointStates);
 % inspect the "jointData" variable in MATLAB to get familiar with its structure
-Z = [jointData.Position(1)-deg2rad(180);jointData.Position(2)-deg2rad(90);jointData.Position(3)-deg2rad(-90);jointData.Velocity(1);jointData.Velocity(2);jointData.Velocity(3)];
+Z = [jointData.Position(1)-deg2rad(90);jointData.Position(2)-deg2rad(45);jointData.Position(3)+deg2rad(30);jointData.Velocity(1);jointData.Velocity(2);jointData.Velocity(3)];
 
 q1 = Z(1);
 q2 = Z(2);
@@ -71,44 +71,12 @@ K = [12.0000         0         0    7.0000         0         0;
 I1 = 0; I2 = 0; I3 = 0; l1R = 31.85; l1D = 25; l2R = 200; l2D = 0; l3R = 200; l3D = 0;
 lc1R = -6.37; lc1D = 14.26; lc2R = 110.86; lc2D = 4.06; lc3R = 122.2; lc3D = 31; 
 m1 = 0.1923; m2 = 0.08557; m3 = 0.09533;
-% %   K = [20.1043    4.3237    3.9425    0.3879; ...
-% %         4.8670    4.4392    1.1991    0.2308];
-% %   K = [19.2010    4.2671    1.9818    0.1598;
-% %     4.5751    4.3798    0.5810    0.0931];
-%   K = [38.1226    4.4511    9.8124    1.3962;
-%     10.1937    4.5072    2.9161    0.5639];
-% 
+
+% Control Law
 U = (-1*K*Z);
 u1 = U(1)
 u3 = U(2)
 u7 = U(3)
-% 
-% M = [I1 + I2 + I3 + l2D^2*m3 + l1R^2*m2 + l1R^2*m3 + (l2R^2*m3)/2 + lc2D^2*m2 + lc3D^2*m3 + lc1R^2*m1 + (lc2R^2*m2)/2 + (lc3R^2*m3)/2 + 2*l2D*lc3D*m3 + (l2R^2*m3*cos(2*q2))/2 + (lc2R^2*m2*cos(2*q2))/2 + (lc3R^2*m3*cos(2*q2 + 2*q3))/2 + 2*l1R*lc3R*m3*cos(q2 + q3) + 2*l1R*l2R*m3*cos(q2) + 2*l1R*lc2R*m2*cos(q2) + l2R*lc3R*m3*cos(q3) + l2R*lc3R*m3*cos(2*q2 + q3), - l2D*lc3R*m3*sin(q2 + q3) - lc3D*lc3R*m3*sin(q2 + q3) - l2D*l2R*m3*sin(q2) - l2R*lc3D*m3*sin(q2) - lc2D*lc2R*m2*sin(q2),   -lc3R*m3*sin(q2 + q3)*(l2D + lc3D);
-%     - l2D*lc3R*m3*sin(q2 + q3) - lc3D*lc3R*m3*sin(q2 + q3) - l2D*l2R*m3*sin(q2) - l2R*lc3D*m3*sin(q2) - lc2D*lc2R*m2*sin(q2),                                                       m3*l2R^2 + 2*m3*cos(q3)*l2R*lc3R + m2*lc2R^2 + m3*lc3R^2 + I2 + I3, m3*lc3R^2 + l2R*m3*cos(q3)*lc3R + I3;
-%     -lc3R*m3*sin(q2 + q3)*(l2D + lc3D),                                                                                     m3*lc3R^2 + l2R*m3*cos(q3)*lc3R + I3,                       m3*lc3R^2 + I3];
-% 
-% Gq = [ 0;
-% m3*(lc3R*cos(q2 + q3) + l2R*cos(q2)) + lc2R*m2*cos(q2);
-%                                   lc3R*m3*cos(q2 + q3)];  
-% 
-% Cq = [- q_dot_2*((m3*sin(2*q2)*l2R^2)/2 + m3*sin(2*q2 + q3)*l2R*lc3R + l1R*m3*sin(q2)*l2R + (m2*sin(2*q2)*lc2R^2)/2 + l1R*m2*sin(q2)*lc2R + (m3*sin(2*q2 + 2*q3)*lc3R^2)/2 + l1R*m3*sin(q2 + q3)*lc3R) - (lc3R*m3*q_dot_3*(lc3R*sin(2*q2 + 2*q3) + 2*l1R*sin(q2 + q3) + l2R*sin(q3) + l2R*sin(2*q2 + q3)))/2, q_dot_1*((m3*sin(2*q2)*l2R^2)/2 + m3*sin(2*q2 + q3)*l2R*lc3R + l1R*m3*sin(q2)*l2R + (m2*sin(2*q2)*lc2R^2)/2 + l1R*m2*sin(q2)*lc2R + (m3*sin(2*q2 + 2*q3)*lc3R^2)/2 + l1R*m3*sin(q2 + q3)*lc3R), (lc3R*m3*q_dot_1*(lc3R*sin(2*q2 + 2*q3) + 2*l1R*sin(q2 + q3) + l2R*sin(q3) + l2R*sin(2*q2 + q3)))/2;
-% - q_dot_1*((m3*sin(2*q2)*l2R^2)/2 + m3*sin(2*q2 + q3)*l2R*lc3R + l1R*m3*sin(q2)*l2R + (m2*sin(2*q2)*lc2R^2)/2 + l1R*m2*sin(q2)*lc2R + (m3*sin(2*q2 + 2*q3)*lc3R^2)/2 + l1R*m3*sin(q2 + q3)*lc3R) - q_dot_2*(l2D*lc3R*m3*cos(q2 + q3) + lc3D*lc3R*m3*cos(q2 + q3) + l2D*l2R*m3*cos(q2) + l2R*lc3D*m3*cos(q2) + lc2D*lc2R*m2*cos(q2)) - lc3R*m3*q_dot_3*cos(q2 + q3)*(l2D + lc3D), -l2R*lc3R*m3*q_dot_3*sin(q3),  l2R*lc3R*m3*q_dot_2*sin(q3);
-%                                                                                                                                                                                   - (lc3R*m3*q_dot_1*(lc3R*sin(2*q2 + 2*q3) + 2*l1R*sin(q2 + q3) + l2R*sin(q3) + l2R*sin(2*q2 + q3)))/2 - lc3R*m3*q_dot_2*cos(q2 + q3)*(l2D + lc3D) - lc3R*m3*q_dot_3*cos(q2 + q3)*(l2D + lc3D),   -l2R*lc3R*m3*sin(q3)*(q_dot_2 + q_dot_3),  0]
-% traj1 = subs(traj1,t,t1); 
-% traj2 = subs(traj2,t,t1); 
-% traj3 = subs(traj3,t,t1);
-% traj1dot = subs(traj1dot,t,t1); traj2dot = subs(traj2dot,t,t1);  traj3dot = subs(traj3dot,t,t1); trajddot = subs(trajddot,t,t1);
-% error = [Z(1)-traj1;Z(2)-traj2;Z(3)-traj3; Z(4)-traj1dot;Z(5)-traj2dot;Z(6)-traj3dot];
-% t1
-% v = (-1*K*error)+trajddot;
-% 
-% 
-% 
-% Tau = M*v + Cq +Gq;
-% 
-% u1 = double(Tau(1))
-% u3 = double(Tau(2))
-% u7 = double(Tau(3))
 
 torq1 = [torq1;u1];
 torq2 = [torq2;u3];

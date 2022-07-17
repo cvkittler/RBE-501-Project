@@ -1,8 +1,10 @@
 <launch>
   <arg name="model" default="$(find fridge_bot)/src/urdf/fridge_bot.urdf "/>
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
-  <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="world_name" value="$$(find fridge_bot)/src/world/fridge_bot_world.world"/>
+    <arg name="paused" value="false"/>
+  </include>
   <node
     name="tf_footprint_base"
     pkg="tf"
