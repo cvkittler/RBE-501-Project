@@ -19,7 +19,7 @@ Add the fridge_bot folder to your src of ROS workspace
 
 `roslaunch fridge_bot display.launch`
 
-To Compare Torques
+## To Compare Torques
 1. Run Position_control.m
 2. save the variables collected
 3. import them into 'Final_project_2.m'
