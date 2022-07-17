@@ -1,3 +1,4 @@
+DATA_SIZE = 106
 syms m1 m2 m3 real
 syms q1 q2 q3 real
 syms g real
@@ -99,7 +100,7 @@ g3 = diff(P, q3);
 G = [g1; g2; g3];
 Lagrange_Tau = simplify(expand(D*[q_ddot_1;q_ddot_2;q_ddot_3] +...
     C*[q_dot_1; q_dot_2; q_dot_3] + G))
-for i = 1:150
+for i = 1:DATA_SIZE
     % Only have to run this part to get new values
     
     tau_subs = simplify(subs(Lagrange_Tau,[g,m1,m2,m3,q1,q2,q3,q_dot_1,q_dot_2,q_dot_3,q_ddot_1,q_ddot_2,q_ddot_3],[9.8,125.62,79.99,429.4837,z1(i),z2(i),z3(i),z4(i),z5(i),z6(i),0,0,0]));
@@ -112,23 +113,23 @@ for i = 1:150
     % end of loop part
 end
 subplot(2,3,1)
-plot(1:150,z1(1:150),1:150,z2(1:150),1:150,z3(1:150))
+plot(1:DATA_SIZE,z1(1:DATA_SIZE),1:DATA_SIZE,z2(1:DATA_SIZE),1:DATA_SIZE,z3(1:DATA_SIZE))
 legend("Motor 1 Position","Motor 2 Position","Motor 3 Position")
 title("Motor Positions")
 subplot(2,3,2)
-plot(1:150,torq1(1:150),1:150,Motor1_T(1:150))
+plot(1:DATA_SIZE,torq1(1:DATA_SIZE),1:DATA_SIZE,Motor1_T(1:DATA_SIZE))
 legend("Torque 1 SIM","Torque 1 EQU")
 title("Motor 1 Torque Comparison")
 subplot(2,3,4)
-plot(1:150,torq2(1:150),1:150,Motor2_T(1:150))
+plot(1:DATA_SIZE,torq2(1:150),1:DATA_SIZE,Motor2_T(1:DATA_SIZE))
 legend("Torque 2 SIM","Torque 2 EQU")
 title("Motor 2 Torque Comparison")
 subplot(2,3,5)
-plot(1:150,torq3(1:150),1:150,Motor3_T(1:150))
+plot(1:DATA_SIZE,torq3(1:DATA_SIZE),1:DATA_SIZE,Motor3_T(1:DATA_SIZE))
 legend("Torque 3 SIM","Torque 3 EQU")
 title("Motor 3 Torque Comparison")
 subplot(2,3,6)
-(1:150,z4(1:150),1:150,z5(1:150),1:150,z6(1:150))
+(1:DATA_SIZE,z4(1:DATA_SIZE),1:DATA_SIZE,z5(1:DATA_SIZE),1:DATA_SIZE,z6(1:DATA_SIZE))
 legend("Motor 1 Velocity","Motor 2 Velocity","Motor 3 Velocity")
 title("Motor Velocitys")
 
