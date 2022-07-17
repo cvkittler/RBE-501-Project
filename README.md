@@ -18,3 +18,14 @@ Add the fridge_bot folder to your src of ROS workspace
 ## To view in Rviz run the following command:
 
 `roslaunch fridge_bot display.launch`
+
+To Compare Torques
+1. Run Position_control.m
+2. save the variables collected
+3. import them into 'Final_project_2.m'
+4. change the array size variable in Final_project_2.m to be the size of the data imported
+5. Run 'Final_project_2.m'
+
+## To view in Rviz run the following command:
+
+`roslaunch fridge_bot display.launch`
