@@ -2,7 +2,7 @@
 
 ## Step 1:
 
-Add the fridge_bot folder to yout src of workspace
+Add the fridge_bot folder to your src of ROS workspace
 
 ## Step 2:
 ### Run the following commands:
