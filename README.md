@@ -13,7 +13,8 @@ Add the fridge_bot folder to your src of ROS workspace
 ### Open Matlab and Run the following Scripts:
 ### (Please Make sure you have Matlab Robotics Toolbox and Matlab ROS Toolbox)
 1. `matlab_ros_bridge.m`
-
+### Position Control Script
+2. `Position_Control.m`
 ## To view in Rviz run the following command:
 
 `roslaunch fridge_bot display.launch`
